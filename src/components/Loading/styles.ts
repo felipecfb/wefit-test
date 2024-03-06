@@ -13,6 +13,10 @@ export const Container = styled.div`
   height: 100vh;
 
   padding-top: 40px;
+
+  @media screen and (max-width: 768px) {
+    padding-top: 0;
+  }
 `
 
 export const LoadSpinner = styled.img`
