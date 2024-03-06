@@ -1,14 +1,16 @@
 import styled from 'styled-components'
 
 export const Container = styled.header`
-  padding: 24px 180px;
+  margin: 0 180px;
+
+  padding: 24px 16px;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 
   @media screen and (max-width: 768px) {
-    padding: 24px 16px;
+    margin: 0;
 
     p {
       display: none;
