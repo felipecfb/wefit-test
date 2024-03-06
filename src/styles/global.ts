@@ -7,15 +7,6 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  :root {
-    --background: #2F2E41;
-    --primary-text: #333333;
-    --secondary-text: #999999;
-    --button: #009EDD;
-    --button-active: #039B00;
-    --white: #ffffff;
-  }
-
   @media screen and (max-width: 1080px) {
     html {
         font-size: 93.75%;
@@ -29,8 +20,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background: var(--background);
-    color: var(--primary-text);
+    background: ${({ theme }) => theme.colors.background};
+    color: ${({ theme }) => theme.colors['primary-text']};
   }
 
   body, input, select, textarea, button {
