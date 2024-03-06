@@ -15,6 +15,8 @@ export const Container = styled.div`
 
   background-color: ${({ theme }) => theme.colors.white};
 
+  border: 2px solid transparent;
+
   &:focus-within {
     border: 2px solid #009edd;
   }
