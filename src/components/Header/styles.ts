@@ -1,7 +1,19 @@
 import styled from 'styled-components'
 
 export const Container = styled.header`
-  padding: 31.5px 180px;
+  padding: 24px 180px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @media screen and (max-width: 768px) {
+    padding: 24px 16px;
+
+    p {
+      display: none;
+    }
+  }
 `
 
 export const Logo = styled.span`
