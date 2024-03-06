@@ -6,6 +6,13 @@ const rotateAnimation = keyframes`
   }
 `
 
+export const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+`
+
 export const LoadSpinner = styled.img`
   animation: ${rotateAnimation} 1s infinite linear;
 `

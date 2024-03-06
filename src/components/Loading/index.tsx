@@ -1,5 +1,9 @@
-import { LoadSpinner } from './styles'
+import { Container, LoadSpinner } from './styles'
 
 export function Loading() {
-  return <LoadSpinner src="load-spinner.png" />
+  return (
+    <Container>
+      <LoadSpinner src="load-spinner.png" alt="Load Spinner" />
+    </Container>
+  )
 }
