@@ -11,6 +11,8 @@ export const Container = styled.div`
   justify-content: center;
   align-items: flex-start;
   height: 100vh;
+
+  padding-top: 40px;
 `
 
 export const LoadSpinner = styled.img`
