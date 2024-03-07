@@ -1,12 +1,27 @@
-import { ChangeEvent, useState } from 'react'
+import { ChangeEvent, KeyboardEvent, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import { Container, Input, SearchIcon } from './styles'
 
 export function SearchBar() {
+  const navigate = useNavigate()
+
   const [search, setSearch] = useState('')
 
-  function handleSearch(event: ChangeEvent<HTMLInputElement>) {
+  function handleChange(event: ChangeEvent<HTMLInputElement>) {
     setSearch(event.target.value)
+  }
+
+  function handleSearch() {
+    if (search) {
+      navigate(`?search-query=${search}`)
+    }
+  }
+
+  function handleKeyPress(event: KeyboardEvent<HTMLInputElement>) {
+    if (event.key === 'Enter') {
+      handleSearch()
+    }
   }
 
   return (
@@ -15,9 +30,10 @@ export function SearchBar() {
         type="text"
         placeholder="Buscar filme pelo nome"
         value={search}
-        onChange={handleSearch}
+        onChange={handleChange}
+        onKeyPress={handleKeyPress}
       />
-      <SearchIcon search={search.toString()} />
+      <SearchIcon search={search.toString()} onClick={handleSearch} />
     </Container>
   )
 }
