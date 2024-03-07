@@ -99,6 +99,10 @@ export function CartProvider({ children }: CartProviderProps) {
   }
 
   function decrementProductQuantity(productId: number) {
+    if (cart.find((product) => product.id === productId)?.quantity === 1) {
+      return
+    }
+
     const newCart = cart.map((product) =>
       product.id === productId
         ? { ...product, quantity: product.quantity - 1 }
