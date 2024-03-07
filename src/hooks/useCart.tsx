@@ -2,6 +2,8 @@ import { createContext, ReactNode, useContext, useState } from 'react'
 
 import { MovieCard } from '@/pages/Home/components/MovieCard'
 
+import { useLocalStorage } from './useLocalStorage'
+
 const WeMoviesLocalStorageKey = '@WeMovies:cart'
 
 interface Cart extends MovieCard {
@@ -24,11 +26,13 @@ interface CartProviderProps {
 const CartContext = createContext({} as CartContextData)
 
 export function CartProvider({ children }: CartProviderProps) {
+  const { setLocalStorage, getLocalStorage } = useLocalStorage()
+
   const [cart, setCart] = useState<Cart[]>(() => {
-    const storagedCart = localStorage.getItem(WeMoviesLocalStorageKey)
+    const storagedCart = getLocalStorage()
 
     if (storagedCart) {
-      setCart(JSON.parse(storagedCart))
+      JSON.parse(storagedCart)
     }
 
     return []
@@ -51,17 +55,14 @@ export function CartProvider({ children }: CartProviderProps) {
         ),
       )
 
-      localStorage.setItem(
-        WeMoviesLocalStorageKey,
-        JSON.stringify(
-          cart.map((cartProduct) =>
-            cartProduct.id === product.id
-              ? {
-                  ...cartProduct,
-                  quantity: cartProduct.quantity + 1,
-                }
-              : cartProduct,
-          ),
+      setLocalStorage(
+        cart.map((cartProduct) =>
+          cartProduct.id === product.id
+            ? {
+                ...cartProduct,
+                quantity: cartProduct.quantity + 1,
+              }
+            : cartProduct,
         ),
       )
     } else {
@@ -78,7 +79,8 @@ export function CartProvider({ children }: CartProviderProps) {
     const newCart = cart.filter((product) => product.id !== productId)
 
     setCart(newCart)
-    localStorage.setItem(WeMoviesLocalStorageKey, JSON.stringify(newCart))
+
+    setLocalStorage(newCart)
   }
 
   function incrementProductQuantity(productId: number) {
@@ -89,7 +91,8 @@ export function CartProvider({ children }: CartProviderProps) {
     )
 
     setCart(newCart)
-    localStorage.setItem(WeMoviesLocalStorageKey, JSON.stringify(newCart))
+
+    setLocalStorage(newCart)
   }
 
   function decrementProductQuantity(productId: number) {
@@ -104,7 +107,8 @@ export function CartProvider({ children }: CartProviderProps) {
     )
 
     setCart(newCart)
-    localStorage.setItem(WeMoviesLocalStorageKey, JSON.stringify(newCart))
+
+    setLocalStorage(newCart)
   }
 
   function clearCart() {
