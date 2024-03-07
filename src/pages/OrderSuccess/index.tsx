@@ -13,8 +13,14 @@ export function OrderSuccess() {
     <OrderSuccessContainer>
       <Title>Compra realizada com sucesso!</Title>
 
-      <Image src="order-success.svg" alt="" />
-      <ImageMobile src="order-success-mobile.svg" alt="" />
+      <Image
+        src="order-success.svg"
+        alt="Imagem que representar o sucesso do pedido"
+      />
+      <ImageMobile
+        src="order-success-mobile.svg"
+        alt="Imagem que representar o sucesso do pedido"
+      />
 
       <Link to="/">
         <Button>Voltar</Button>

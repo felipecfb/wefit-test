@@ -49,7 +49,7 @@ export function CartContent() {
         <p>Produto</p>
         <p>Qtd</p>
         <p>Subtotal</p>
-        <img src="trash.svg" alt="" />
+        <img src="trash.svg" alt="Excluir item do carrinho" />
       </CartHeader>
 
       <CartBody>

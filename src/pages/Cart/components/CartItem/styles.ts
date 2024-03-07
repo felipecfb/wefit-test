@@ -1,4 +1,3 @@
-import { Minus, Plus } from 'lucide-react'
 import styled from 'styled-components'
 
 export const CartItemContainer = styled.div`
@@ -46,13 +45,7 @@ export const QuantityWrapper = styled.div`
   justify-content: flex-start;
 `
 
-export const MinusIcon = styled(Minus).attrs({
-  color: '#009EDD',
-})`
-  border: 1px solid ${({ theme }) => theme.colors.button};
-  border-radius: 50%;
-  width: 18px;
-  height: 18px;
+export const MinusIcon = styled.img`
   cursor: pointer;
 `
 
@@ -71,13 +64,7 @@ export const Quantity = styled.input`
   text-align: center;
 `
 
-export const PlusIcon = styled(Plus).attrs({
-  color: '#009EDD',
-})`
-  border: 1px solid ${({ theme }) => theme.colors.button};
-  border-radius: 50%;
-  width: 18px;
-  height: 18px;
+export const PlusIcon = styled.img`
   cursor: pointer;
 `
 

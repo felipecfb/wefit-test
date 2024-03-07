@@ -37,7 +37,7 @@ export function CartItem({
   return (
     <CartItemContainer>
       <ProductWrapper>
-        <Image src={image} alt="Movie" />
+        <Image src={image} alt="Imagem da capa do filme" />
         <InformationsWrapper>
           <Title>{title}</Title>
           <Price>{convertToBRL(price)}</Price>
@@ -45,15 +45,23 @@ export function CartItem({
       </ProductWrapper>
 
       <QuantityWrapper>
-        <MinusIcon onClick={decrementProductQuantity} />
+        <MinusIcon
+          src="minus.svg"
+          alt="Diminuir a quantidade de itens no carrinho"
+          onClick={decrementProductQuantity}
+        />
         <Quantity type="number" value={quantity} />
-        <PlusIcon onClick={incrementProductQuantity} />
+        <PlusIcon
+          src="plus.svg"
+          alt="Aumentar a quantidade de itens no carrinho"
+          onClick={incrementProductQuantity}
+        />
       </QuantityWrapper>
 
       <Subtotal>{convertToBRL(quantity * price)}</Subtotal>
 
       <DeleteButton onClick={deleteProductFromCart}>
-        <img src="trash.svg" alt="" />
+        <img src="trash.svg" alt="Remover um item do carrinho" />
       </DeleteButton>
     </CartItemContainer>
   )

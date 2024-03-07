@@ -32,12 +32,12 @@ export function MovieCard({
 }: MovieCardProps) {
   return (
     <Container>
-      <Image src={movie.image} alt="Movie" />
+      <Image src={movie.image} alt="Imagem da capa do filme" />
       <Title>{movie.title}</Title>
       <Price>{convertToBRL(movie.price)}</Price>
       <Button onClick={() => addProductToCart(movie)} active={active}>
         <CartQuantityWrapper>
-          <CartIcon src="cart-button.svg" alt="Carrinho de compras" />
+          <CartIcon src="cart-button.svg" alt="Entrar no carrinho" />
           {quantity}
         </CartQuantityWrapper>
         Adicionar ao carrinho
