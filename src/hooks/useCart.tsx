@@ -20,6 +20,7 @@ interface CartContextData {
   deleteProductFromCart: (productId: number) => void
   incrementProductQuantity: (productId: number) => void
   decrementProductQuantity: (productId: number) => void
+  clearCart: () => void
 }
 
 interface CartProviderProps {
@@ -113,6 +114,11 @@ export function CartProvider({ children }: CartProviderProps) {
     localStorage.setItem(WeMoviesLocalStorageKey, JSON.stringify(newCart))
   }
 
+  function clearCart() {
+    setCart([])
+    localStorage.removeItem(WeMoviesLocalStorageKey)
+  }
+
   return (
     <CartContext.Provider
       value={{
@@ -121,6 +127,7 @@ export function CartProvider({ children }: CartProviderProps) {
         deleteProductFromCart,
         incrementProductQuantity,
         decrementProductQuantity,
+        clearCart,
       }}
     >
       {children}

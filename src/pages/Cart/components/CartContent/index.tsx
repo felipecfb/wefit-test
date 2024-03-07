@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom'
+
 import { useCart } from '@/hooks/useCart'
 import { convertToBRL } from '@/utils/convertToBRL'
 
@@ -13,11 +15,14 @@ import {
 } from './styles'
 
 export function CartContent() {
+  const navigate = useNavigate()
+
   const {
     cart,
     deleteProductFromCart,
     incrementProductQuantity,
     decrementProductQuantity,
+    clearCart,
   } = useCart()
 
   function handleDeleteProductFromCart(productId: number) {
@@ -30,6 +35,12 @@ export function CartContent() {
 
   function handleDecrementProductQuantity(productId: number) {
     decrementProductQuantity(productId)
+  }
+
+  function handleFinishOrder() {
+    navigate('/order-success')
+
+    clearCart()
   }
 
   return (
@@ -65,7 +76,7 @@ export function CartContent() {
       <Divider />
 
       <CartFooter>
-        <Button>Finalizar pedido</Button>
+        <Button onClick={handleFinishOrder}>Finalizar pedido</Button>
 
         <Total>
           <span>Total</span>
