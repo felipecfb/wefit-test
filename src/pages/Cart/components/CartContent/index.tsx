@@ -1,3 +1,5 @@
+import { useCart } from '@/hooks/useCart'
+
 import { CartItem } from '../CartItem'
 import {
   Button,
@@ -10,6 +12,8 @@ import {
 } from './styles'
 
 export function CartContent() {
+  const { cart } = useCart()
+
   return (
     <CartContentContainer>
       <CartHeader>
@@ -20,7 +24,15 @@ export function CartContent() {
       </CartHeader>
 
       <CartBody>
-        <CartItem />
+        {cart.map((product) => (
+          <CartItem
+            key={product.id}
+            title={product.title}
+            price={product.price}
+            image={product.image}
+            quantity={product.quantity}
+          />
+        ))}
       </CartBody>
 
       <Divider />

@@ -1,3 +1,5 @@
+import { convertToBRL } from '@/utils/convertToBRL'
+
 import {
   CartItemContainer,
   DeleteButton,
@@ -13,24 +15,31 @@ import {
   Title,
 } from './styles'
 
-export function CartItem() {
+interface CartItemProps {
+  title: string
+  price: number
+  image: string
+  quantity: number
+}
+
+export function CartItem({ title, price, image, quantity }: CartItemProps) {
   return (
     <CartItemContainer>
       <ProductWrapper>
-        <Image src="https://via.placeholder.com/300" alt="Movie" />
+        <Image src={image} alt="Movie" />
         <InformationsWrapper>
-          <Title>Viúva Negra</Title>
-          <Price>R$ 9,99</Price>
+          <Title>{title}</Title>
+          <Price>{convertToBRL(price)}</Price>
         </InformationsWrapper>
       </ProductWrapper>
 
       <QuantityWrapper>
         <MinusIcon />
-        <Quantity type="number" value="1" />
+        <Quantity type="number" value={quantity} />
         <PlusIcon />
       </QuantityWrapper>
 
-      <Subtotal>R$ 29,99</Subtotal>
+      <Subtotal>{convertToBRL(quantity * price)}</Subtotal>
 
       <DeleteButton>
         <img src="trash.svg" alt="" />
