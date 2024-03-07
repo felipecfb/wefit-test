@@ -19,14 +19,12 @@ export function Home() {
   const [contentReady, setContentReady] = useState(false)
   const [loading, setLoading] = useState(false)
 
-  // Simulando um delay de 3 segundos da API para carregar os dados
   setTimeout(() => {
     setContentReady(true)
   }, 3000)
 
   useEffect(() => {
     api.get('/products').then((response) => {
-      // Filtrar os filmes de acordo com a busca do usuário se não existir retorna todos os filmes
       if (searchQuery) {
         setLoading(true)
 
@@ -45,7 +43,6 @@ export function Home() {
     })
   }, [searchQuery])
 
-  // Adiciona um filme ao carrinho
   function handleAddProductToCart(product: MovieCard) {
     addProductToCart(product)
   }

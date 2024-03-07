@@ -1,10 +1,4 @@
-import {
-  createContext,
-  ReactNode,
-  useContext,
-  useEffect,
-  useState,
-} from 'react'
+import { createContext, ReactNode, useContext, useState } from 'react'
 
 import { MovieCard } from '@/pages/Home/components/MovieCard'
 
@@ -30,16 +24,15 @@ interface CartProviderProps {
 const CartContext = createContext({} as CartContextData)
 
 export function CartProvider({ children }: CartProviderProps) {
-  const [cart, setCart] = useState<Cart[]>([])
-
-  // Recuperar os dados do carrinho no localStorage
-  useEffect(() => {
+  const [cart, setCart] = useState<Cart[]>(() => {
     const storagedCart = localStorage.getItem(WeMoviesLocalStorageKey)
 
     if (storagedCart) {
       setCart(JSON.parse(storagedCart))
     }
-  }, [])
+
+    return []
+  })
 
   function addProductToCart(product: MovieCard) {
     const productAlreadyInCart = cart.find(
