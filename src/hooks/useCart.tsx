@@ -32,7 +32,7 @@ export function CartProvider({ children }: CartProviderProps) {
     const storagedCart = getLocalStorage()
 
     if (storagedCart) {
-      JSON.parse(storagedCart)
+      return JSON.parse(storagedCart)
     }
 
     return []

@@ -13,7 +13,7 @@ export const useLocalStorage = () => {
     const storagedCart = localStorage.getItem(WeMoviesLocalStorageKey)
 
     if (storagedCart) {
-      setStoragedCart(JSON.parse(storagedCart))
+      return storagedCart
     }
 
     return storagedCart
