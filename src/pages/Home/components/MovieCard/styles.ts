@@ -55,7 +55,4 @@ export const CartQuantityWrapper = styled.div`
   line-height: 16.34px;
 `
 
-export const CartIcon = styled.img`
-  width: 13.6px;
-  height: 13.6px;
-`
+export const CartIcon = styled.img``
