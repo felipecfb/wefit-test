@@ -3,8 +3,11 @@ import {
   DeleteButton,
   Image,
   InformationsWrapper,
+  MinusIcon,
+  PlusIcon,
   Price,
   ProductWrapper,
+  Quantity,
   QuantityWrapper,
   Subtotal,
   Title,
@@ -21,7 +24,11 @@ export function CartItem() {
         </InformationsWrapper>
       </ProductWrapper>
 
-      <QuantityWrapper></QuantityWrapper>
+      <QuantityWrapper>
+        <MinusIcon />
+        <Quantity type="number" value="1" />
+        <PlusIcon />
+      </QuantityWrapper>
 
       <Subtotal>R$ 29,99</Subtotal>
 

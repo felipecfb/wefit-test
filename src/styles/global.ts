@@ -24,6 +24,14 @@ export const GlobalStyle = createGlobalStyle`
     color: ${({ theme }) => theme.colors['primary-text']};
   }
 
+  input {
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+  
   body, input, select, textarea, button {
     font: 400 1rem "Open Sans", sans-serif;
   }
@@ -36,4 +44,5 @@ export const GlobalStyle = createGlobalStyle`
     color: inherit;
     text-decoration: none;
   }
+
 `

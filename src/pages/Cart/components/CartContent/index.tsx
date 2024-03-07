@@ -16,7 +16,7 @@ export function CartContent() {
         <p>Produto</p>
         <p>Qtd</p>
         <p>Subtotal</p>
-        <p></p>
+        <img src="trash.svg" alt="" />
       </CartHeader>
 
       <CartBody>

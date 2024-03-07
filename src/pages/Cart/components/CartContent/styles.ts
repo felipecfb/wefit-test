@@ -20,7 +20,7 @@ export const CartContentContainer = styled.div`
 
 export const CartHeader = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr) 0fr;
 
   p {
     font-size: 14px;
@@ -28,6 +28,10 @@ export const CartHeader = styled.div`
     font-weight: 700;
     line-height: 19.07px;
     text-transform: uppercase;
+  }
+
+  img {
+    opacity: 0;
   }
 
   @media screen and (max-width: 768px) {
