@@ -1,5 +1,11 @@
 import styled from 'styled-components'
 
+import { DefaultButton } from '@/components/Button/styles'
+
+interface ButtonProps {
+  active: boolean
+}
+
 export const Container = styled.div`
   background-color: ${({ theme }) => theme.colors.white};
   padding: 1rem;
@@ -25,24 +31,11 @@ export const Price = styled.p`
   line-height: 21.79px;
 `
 
-export const Button = styled.button`
-  width: 100%;
-  background-color: ${({ theme }) => theme.colors.button};
-  padding: 11px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-
-  color: ${({ theme }) => theme.colors.white};
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  line-height: 16.34px;
-
-  display: flex;
-  align-items: center;
+export const Button = styled(DefaultButton)<ButtonProps>`
   gap: 12px;
-  justify-content: center;
+
+  background-color: ${({ active, theme }) =>
+    active ? theme.colors['button-active'] : theme.colors.button};
 `
 
 export const CartQuantityWrapper = styled.div`

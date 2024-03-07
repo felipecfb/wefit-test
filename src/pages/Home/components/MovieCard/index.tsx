@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 import {
   Button,
   CartIcon,
@@ -9,12 +11,14 @@ import {
 } from './styles'
 
 export function MovieCard() {
+  const [active, setActive] = useState(false)
+
   return (
     <Container>
       <Image src="https://via.placeholder.com/300" alt="Movie" />
       <Title>Viúva Negra</Title>
       <Price>R$ 9,99</Price>
-      <Button>
+      <Button active={active}>
         <CartQuantityWrapper>
           <CartIcon src="cart-button.svg" alt="Carrinho de compras" />0
         </CartQuantityWrapper>

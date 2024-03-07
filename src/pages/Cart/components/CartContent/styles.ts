@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import { DefaultButton } from '@/components/Button/styles'
+
 export const CartContentContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.white};
 
@@ -53,22 +55,8 @@ export const CartFooter = styled.div`
   }
 `
 
-export const Button = styled.button`
-  background-color: ${({ theme }) => theme.colors.button};
-  padding: 11px 0;
+export const Button = styled(DefaultButton)`
   width: 173px;
-  border-radius: 4px;
-  border: none;
-
-  font-size: 12px;
-  font-weight: 700;
-  line-height: 16.34px;
-  color: ${({ theme }) => theme.colors.white};
-  text-transform: uppercase;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
   @media screen and (max-width: 768px) {
     width: 100%;
