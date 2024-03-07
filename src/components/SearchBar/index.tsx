@@ -13,9 +13,7 @@ export function SearchBar() {
   }
 
   function handleSearch() {
-    if (search) {
-      navigate(`?search-query=${search}`)
-    }
+    navigate(`?search-query=${search}`)
   }
 
   function handleKeyPress(event: KeyboardEvent<HTMLInputElement>) {
@@ -32,6 +30,7 @@ export function SearchBar() {
         value={search}
         onChange={handleChange}
         onKeyUp={handleKeyPress}
+        onBlur={handleSearch}
       />
       <SearchIcon search={search.toString()} onClick={handleSearch} />
     </Container>
