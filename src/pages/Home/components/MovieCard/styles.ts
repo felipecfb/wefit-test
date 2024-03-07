@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { DefaultButton } from '@/components/Button/styles'
 
 interface ButtonProps {
-  active: boolean
+  active?: boolean
 }
 
 export const Container = styled.div`
