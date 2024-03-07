@@ -12,12 +12,14 @@ export function SearchBar() {
     setSearch(event.target.value)
   }
 
+  // Navegar para a rota com a query de busca ao clicar no ícone de pesquisa
   function handleSearch() {
     if (search) {
       navigate(`?search-query=${search}`)
     }
   }
 
+  // Pesquisar quando o usuário apertar a tecla Enter
   function handleKeyPress(event: KeyboardEvent<HTMLInputElement>) {
     if (event.key === 'Enter') {
       handleSearch()
@@ -31,7 +33,7 @@ export function SearchBar() {
         placeholder="Buscar filme pelo nome"
         value={search}
         onChange={handleChange}
-        onKeyPress={handleKeyPress}
+        onKeyUp={handleKeyPress}
       />
       <SearchIcon search={search.toString()} onClick={handleSearch} />
     </Container>
