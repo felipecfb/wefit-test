@@ -39,7 +39,11 @@ export const CartHeader = styled.div`
   }
 `
 
-export const CartBody = styled.div``
+export const CartBody = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+`
 
 export const Divider = styled.div`
   width: 100%;
