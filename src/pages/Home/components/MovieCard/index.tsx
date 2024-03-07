@@ -18,25 +18,28 @@ export type MovieCard = {
 }
 
 interface MovieCardProps {
-  data: MovieCard[]
+  movie: MovieCard
+  quantity: number
+  addProductToCart: (product: MovieCard) => void
 }
 
-export function MovieCard({ data }: MovieCardProps) {
+export function MovieCard({
+  movie,
+  quantity,
+  addProductToCart,
+}: MovieCardProps) {
   return (
-    <>
-      {data.map((movie) => (
-        <Container key={movie.id}>
-          <Image src={movie.image} alt="Movie" />
-          <Title>{movie.title}</Title>
-          <Price>{convertToBRL(movie.price)}</Price>
-          <Button>
-            <CartQuantityWrapper>
-              <CartIcon src="cart-button.svg" alt="Carrinho de compras" />0
-            </CartQuantityWrapper>
-            Adicionar ao carrinho
-          </Button>
-        </Container>
-      ))}
-    </>
+    <Container>
+      <Image src={movie.image} alt="Movie" />
+      <Title>{movie.title}</Title>
+      <Price>{convertToBRL(movie.price)}</Price>
+      <Button onClick={() => addProductToCart(movie)}>
+        <CartQuantityWrapper>
+          <CartIcon src="cart-button.svg" alt="Carrinho de compras" />
+          {quantity}
+        </CartQuantityWrapper>
+        Adicionar ao carrinho
+      </Button>
+    </Container>
   )
 }

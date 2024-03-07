@@ -16,6 +16,7 @@ interface Cart extends MovieCard {
 
 interface CartContextData {
   cart: Cart[]
+  addProductToCart: (product: MovieCard) => void
 }
 
 interface CartProviderProps {
@@ -36,10 +37,51 @@ export function CartProvider({ children }: CartProviderProps) {
     }
   }, [])
 
+  function addProductToCart(product: MovieCard) {
+    const productAlreadyInCart = cart.find(
+      (cartProduct) => cartProduct.id === product.id,
+    )
+
+    if (productAlreadyInCart) {
+      setCart(
+        cart.map((cartProduct) =>
+          cartProduct.id === product.id
+            ? {
+                ...cartProduct,
+                quantity: cartProduct.quantity + 1,
+              }
+            : cartProduct,
+        ),
+      )
+
+      localStorage.setItem(
+        WeMoviesLocalStorageKey,
+        JSON.stringify(
+          cart.map((cartProduct) =>
+            cartProduct.id === product.id
+              ? {
+                  ...cartProduct,
+                  quantity: cartProduct.quantity + 1,
+                }
+              : cartProduct,
+          ),
+        ),
+      )
+    } else {
+      setCart([...cart, { ...product, quantity: 1 }])
+
+      localStorage.setItem(
+        WeMoviesLocalStorageKey,
+        JSON.stringify([...cart, { ...product, quantity: 1 }]),
+      )
+    }
+  }
+
   return (
     <CartContext.Provider
       value={{
         cart,
+        addProductToCart,
       }}
     >
       {children}

@@ -17,7 +17,7 @@ export function SearchBar() {
         value={search}
         onChange={handleSearch}
       />
-      <SearchIcon hasSearchText={search.length > 0} />
+      <SearchIcon search={search.toString()} />
     </Container>
   )
 }

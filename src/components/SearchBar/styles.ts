@@ -2,7 +2,7 @@ import { Search } from 'lucide-react'
 import styled from 'styled-components'
 
 interface SearchIconProps {
-  hasSearchText: boolean
+  search: string
 }
 
 export const Container = styled.div`
@@ -44,7 +44,7 @@ export const Input = styled.input`
 `
 
 export const SearchIcon = styled(Search)<SearchIconProps>`
-  color: ${({ hasSearchText, theme }) =>
-    hasSearchText ? theme.colors.background : '#cccccc'};
+  color: ${({ search, theme }) =>
+    search ? theme.colors.background : '#cccccc'};
   cursor: pointer;
 `
