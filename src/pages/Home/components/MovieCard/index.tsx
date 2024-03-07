@@ -1,5 +1,7 @@
 import { useState } from 'react'
 
+import { convertToBRL } from '@/utils/convertToBRL'
+
 import {
   Button,
   CartIcon,
@@ -10,20 +12,35 @@ import {
   Title,
 } from './styles'
 
-export function MovieCard() {
+type MovieCard = {
+  id: number
+  title: string
+  price: number
+  image: string
+}
+
+interface MovieCardProps {
+  data: MovieCard[]
+}
+
+export function MovieCard({ data }: MovieCardProps) {
   const [active, setActive] = useState(false)
 
   return (
-    <Container>
-      <Image src="https://via.placeholder.com/300" alt="Movie" />
-      <Title>Viúva Negra</Title>
-      <Price>R$ 9,99</Price>
-      <Button active={active}>
-        <CartQuantityWrapper>
-          <CartIcon src="cart-button.svg" alt="Carrinho de compras" />0
-        </CartQuantityWrapper>
-        Adicionar ao carrinho
-      </Button>
-    </Container>
+    <>
+      {data.map((movie) => (
+        <Container key={movie.id}>
+          <Image src={movie.image} alt="Movie" />
+          <Title>{movie.title}</Title>
+          <Price>{convertToBRL(movie.price)}</Price>
+          <Button active={active}>
+            <CartQuantityWrapper>
+              <CartIcon src="cart-button.svg" alt="Carrinho de compras" />0
+            </CartQuantityWrapper>
+            Adicionar ao carrinho
+          </Button>
+        </Container>
+      ))}
+    </>
   )
 }

@@ -17,7 +17,9 @@ export const Container = styled.div`
   gap: 8px;
 `
 
-export const Image = styled.img``
+export const Image = styled.img`
+  width: 147px;
+`
 
 export const Title = styled.h3`
   font-size: 12px;
