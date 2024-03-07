@@ -17,6 +17,7 @@ interface Cart extends MovieCard {
 interface CartContextData {
   cart: Cart[]
   addProductToCart: (product: MovieCard) => void
+  deleteProductFromCart: (productId: number) => void
 }
 
 interface CartProviderProps {
@@ -77,11 +78,19 @@ export function CartProvider({ children }: CartProviderProps) {
     }
   }
 
+  function deleteProductFromCart(productId: number) {
+    const newCart = cart.filter((product) => product.id !== productId)
+
+    setCart(newCart)
+    localStorage.setItem(WeMoviesLocalStorageKey, JSON.stringify(newCart))
+  }
+
   return (
     <CartContext.Provider
       value={{
         cart,
         addProductToCart,
+        deleteProductFromCart,
       }}
     >
       {children}

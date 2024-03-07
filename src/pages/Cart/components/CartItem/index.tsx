@@ -20,9 +20,16 @@ interface CartItemProps {
   price: number
   image: string
   quantity: number
+  deleteProductFromCart: () => void
 }
 
-export function CartItem({ title, price, image, quantity }: CartItemProps) {
+export function CartItem({
+  title,
+  price,
+  image,
+  quantity,
+  deleteProductFromCart,
+}: CartItemProps) {
   return (
     <CartItemContainer>
       <ProductWrapper>
@@ -41,7 +48,7 @@ export function CartItem({ title, price, image, quantity }: CartItemProps) {
 
       <Subtotal>{convertToBRL(quantity * price)}</Subtotal>
 
-      <DeleteButton>
+      <DeleteButton onClick={deleteProductFromCart}>
         <img src="trash.svg" alt="" />
       </DeleteButton>
     </CartItemContainer>

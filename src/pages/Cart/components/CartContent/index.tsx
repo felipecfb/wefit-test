@@ -1,4 +1,5 @@
 import { useCart } from '@/hooks/useCart'
+import { convertToBRL } from '@/utils/convertToBRL'
 
 import { CartItem } from '../CartItem'
 import {
@@ -12,7 +13,11 @@ import {
 } from './styles'
 
 export function CartContent() {
-  const { cart } = useCart()
+  const { cart, deleteProductFromCart } = useCart()
+
+  function handleDeleteProductFromCart(productId: number) {
+    deleteProductFromCart(productId)
+  }
 
   return (
     <CartContentContainer>
@@ -31,6 +36,9 @@ export function CartContent() {
             price={product.price}
             image={product.image}
             quantity={product.quantity}
+            deleteProductFromCart={() =>
+              handleDeleteProductFromCart(product.id)
+            }
           />
         ))}
       </CartBody>
@@ -42,7 +50,14 @@ export function CartContent() {
 
         <Total>
           <span>Total</span>
-          <p>R$ 29,90</p>
+          <p>
+            {convertToBRL(
+              cart.reduce(
+                (acc, product) => acc + product.price * product.quantity,
+                0,
+              ),
+            )}
+          </p>
         </Total>
       </CartFooter>
     </CartContentContainer>

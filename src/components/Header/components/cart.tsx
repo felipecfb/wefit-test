@@ -7,8 +7,6 @@ export function Cart() {
 
   const cartQuantity = cart.reduce((acc, product) => acc + product.quantity, 0)
 
-  console.log(cartQuantity)
-
   return (
     <Container href="/cart">
       <CartDescription>
