@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 
 import {
@@ -10,21 +11,24 @@ import {
 
 export function OrderSuccess() {
   return (
-    <OrderSuccessContainer>
-      <Title>Compra realizada com sucesso!</Title>
+    <>
+      <Helmet title="Order Success" />
+      <OrderSuccessContainer>
+        <Title>Compra realizada com sucesso!</Title>
 
-      <Image
-        src="order-success.svg"
-        alt="Imagem que representar o sucesso do pedido"
-      />
-      <ImageMobile
-        src="order-success-mobile.svg"
-        alt="Imagem que representar o sucesso do pedido"
-      />
+        <Image
+          src="order-success.svg"
+          alt="Imagem que representar o sucesso do pedido"
+        />
+        <ImageMobile
+          src="order-success-mobile.svg"
+          alt="Imagem que representar o sucesso do pedido"
+        />
 
-      <Link to="/">
-        <Button>Voltar</Button>
-      </Link>
-    </OrderSuccessContainer>
+        <Link to="/">
+          <Button>Voltar</Button>
+        </Link>
+      </OrderSuccessContainer>
+    </>
   )
 }
