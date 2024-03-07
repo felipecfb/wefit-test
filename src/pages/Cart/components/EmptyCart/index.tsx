@@ -8,7 +8,7 @@ export function EmptyCart() {
       <Image src="empty-cart.svg" alt="" />
       <ImageMobile src="empty-cart-mobile.svg" alt="" />
 
-      <Button href="/">Recarregar página</Button>
+      <Button>Recarregar página</Button>
     </EmptyCartContainer>
   )
 }

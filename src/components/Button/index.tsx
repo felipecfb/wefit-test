@@ -4,7 +4,7 @@ import { DefaultButton } from './styles'
 
 interface ButtonProps {
   title: string
-  background: ThemeType
+  background?: ThemeType
 }
 
 export function Button({ title, background }: ButtonProps) {
