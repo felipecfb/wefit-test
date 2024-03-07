@@ -69,6 +69,7 @@ export function Home() {
                     cart.find((product) => product.id === movie.id)?.quantity ||
                     0
                   }
+                  active={!!cart.find((product) => product.id === movie.id)}
                 />
               ))}
             </MoviesWrapper>

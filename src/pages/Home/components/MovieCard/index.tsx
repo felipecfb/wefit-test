@@ -21,19 +21,21 @@ interface MovieCardProps {
   movie: MovieCard
   quantity: number
   addProductToCart: (product: MovieCard) => void
+  active: boolean
 }
 
 export function MovieCard({
   movie,
   quantity,
   addProductToCart,
+  active,
 }: MovieCardProps) {
   return (
     <Container>
       <Image src={movie.image} alt="Movie" />
       <Title>{movie.title}</Title>
       <Price>{convertToBRL(movie.price)}</Price>
-      <Button onClick={() => addProductToCart(movie)}>
+      <Button onClick={() => addProductToCart(movie)} active={active}>
         <CartQuantityWrapper>
           <CartIcon src="cart-button.svg" alt="Carrinho de compras" />
           {quantity}
