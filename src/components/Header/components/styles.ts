@@ -22,4 +22,10 @@ export const CartDescription = styled.section`
     font-weight: 600;
     line-height: 16.34px;
   }
+
+  @media screen and (max-width: 768px) {
+    p {
+      display: none;
+    }
+  }
 `

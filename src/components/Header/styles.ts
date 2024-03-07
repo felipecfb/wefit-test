@@ -11,10 +11,6 @@ export const Container = styled.header`
 
   @media screen and (max-width: 768px) {
     margin: 0;
-
-    p {
-      display: none;
-    }
   }
 `
 
