@@ -21,6 +21,8 @@ interface CartItemProps {
   image: string
   quantity: number
   deleteProductFromCart: () => void
+  incrementProductQuantity: () => void
+  decrementProductQuantity: () => void
 }
 
 export function CartItem({
@@ -29,6 +31,8 @@ export function CartItem({
   image,
   quantity,
   deleteProductFromCart,
+  incrementProductQuantity,
+  decrementProductQuantity,
 }: CartItemProps) {
   return (
     <CartItemContainer>
@@ -41,9 +45,9 @@ export function CartItem({
       </ProductWrapper>
 
       <QuantityWrapper>
-        <MinusIcon />
+        <MinusIcon onClick={decrementProductQuantity} />
         <Quantity type="number" value={quantity} />
-        <PlusIcon />
+        <PlusIcon onClick={incrementProductQuantity} />
       </QuantityWrapper>
 
       <Subtotal>{convertToBRL(quantity * price)}</Subtotal>

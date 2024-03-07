@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 import { Button, EmptyCartContainer, Image, ImageMobile, Title } from './styles'
 
 export function EmptyCart() {
@@ -8,7 +10,9 @@ export function EmptyCart() {
       <Image src="empty-cart.svg" alt="" />
       <ImageMobile src="empty-cart-mobile.svg" alt="" />
 
-      <Button>Recarregar página</Button>
+      <Link to="/">
+        <Button>Recarregar página</Button>
+      </Link>
     </EmptyCartContainer>
   )
 }

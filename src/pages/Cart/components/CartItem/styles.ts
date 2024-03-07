@@ -53,6 +53,7 @@ export const MinusIcon = styled(Minus).attrs({
   border-radius: 50%;
   width: 18px;
   height: 18px;
+  cursor: pointer;
 `
 
 export const Quantity = styled.input`
@@ -77,6 +78,7 @@ export const PlusIcon = styled(Plus).attrs({
   border-radius: 50%;
   width: 18px;
   height: 18px;
+  cursor: pointer;
 `
 
 export const Subtotal = styled.p`

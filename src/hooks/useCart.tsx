@@ -18,6 +18,8 @@ interface CartContextData {
   cart: Cart[]
   addProductToCart: (product: MovieCard) => void
   deleteProductFromCart: (productId: number) => void
+  incrementProductQuantity: (productId: number) => void
+  decrementProductQuantity: (productId: number) => void
 }
 
 interface CartProviderProps {
@@ -85,12 +87,36 @@ export function CartProvider({ children }: CartProviderProps) {
     localStorage.setItem(WeMoviesLocalStorageKey, JSON.stringify(newCart))
   }
 
+  function incrementProductQuantity(productId: number) {
+    const newCart = cart.map((product) =>
+      product.id === productId
+        ? { ...product, quantity: product.quantity + 1 }
+        : product,
+    )
+
+    setCart(newCart)
+    localStorage.setItem(WeMoviesLocalStorageKey, JSON.stringify(newCart))
+  }
+
+  function decrementProductQuantity(productId: number) {
+    const newCart = cart.map((product) =>
+      product.id === productId
+        ? { ...product, quantity: product.quantity - 1 }
+        : product,
+    )
+
+    setCart(newCart)
+    localStorage.setItem(WeMoviesLocalStorageKey, JSON.stringify(newCart))
+  }
+
   return (
     <CartContext.Provider
       value={{
         cart,
         addProductToCart,
         deleteProductFromCart,
+        incrementProductQuantity,
+        decrementProductQuantity,
       }}
     >
       {children}

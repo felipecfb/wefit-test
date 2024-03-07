@@ -13,10 +13,23 @@ import {
 } from './styles'
 
 export function CartContent() {
-  const { cart, deleteProductFromCart } = useCart()
+  const {
+    cart,
+    deleteProductFromCart,
+    incrementProductQuantity,
+    decrementProductQuantity,
+  } = useCart()
 
   function handleDeleteProductFromCart(productId: number) {
     deleteProductFromCart(productId)
+  }
+
+  function handleIncrementProductQuantity(productId: number) {
+    incrementProductQuantity(productId)
+  }
+
+  function handleDecrementProductQuantity(productId: number) {
+    decrementProductQuantity(productId)
   }
 
   return (
@@ -38,6 +51,12 @@ export function CartContent() {
             quantity={product.quantity}
             deleteProductFromCart={() =>
               handleDeleteProductFromCart(product.id)
+            }
+            incrementProductQuantity={() =>
+              handleIncrementProductQuantity(product.id)
+            }
+            decrementProductQuantity={() =>
+              handleDecrementProductQuantity(product.id)
             }
           />
         ))}

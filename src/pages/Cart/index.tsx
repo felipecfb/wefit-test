@@ -7,5 +7,7 @@ import { Container } from './styles'
 export function Cart() {
   const { cart } = useCart()
 
-  return <Container>{cart ? <CartContent /> : <EmptyCart />}</Container>
+  return (
+    <Container>{cart.length > 0 ? <CartContent /> : <EmptyCart />}</Container>
+  )
 }
