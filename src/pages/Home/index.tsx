@@ -4,7 +4,8 @@ import { Helmet } from 'react-helmet-async'
 import { Loading } from '@/components/Loading'
 import { SearchBar } from '@/components/SearchBar'
 
-import { Container } from './styles'
+import { MovieCard } from './components/MovieCard'
+import { Container, MoviesWrapper } from './styles'
 
 export function Home() {
   const [contentReady, setContentReady] = useState(false)
@@ -19,6 +20,16 @@ export function Home() {
       {contentReady ? (
         <Container>
           <SearchBar />
+
+          <MoviesWrapper>
+            <MovieCard />
+            <MovieCard />
+            <MovieCard />
+            <MovieCard />
+            <MovieCard />
+            <MovieCard />
+            <MovieCard />
+          </MoviesWrapper>
         </Container>
       ) : (
         <Loading />
