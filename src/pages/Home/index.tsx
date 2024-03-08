@@ -20,7 +20,7 @@ export function Home() {
 
   setTimeout(() => {
     setContentReady(true)
-  }, 3000)
+  }, 2000)
 
   useEffect(() => {
     api.get('/products').then((response) => {
@@ -35,7 +35,7 @@ export function Home() {
 
         setTimeout(() => {
           setLoading(false)
-        }, 3000)
+        }, 2000)
       } else {
         setMovies(response.data)
       }
