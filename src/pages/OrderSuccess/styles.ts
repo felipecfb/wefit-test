@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { DefaultButton } from '@/components/Button/styles'
 
 export const OrderSuccessContainer = styled.div`
-  padding: 64px 300.5px 143.64px;
+  padding: 64px 300.5px;
 
   display: flex;
   flex-direction: column;
