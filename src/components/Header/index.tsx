@@ -1,12 +1,14 @@
+import { Link } from 'react-router-dom'
+
 import { Cart } from './components/cart'
 import { Container, Logo } from './styles'
 
 export function Header() {
   return (
     <Container>
-      <a href="/">
+      <Link to="/">
         <Logo>WeMovies</Logo>
-      </a>
+      </Link>
 
       <Cart />
     </Container>
