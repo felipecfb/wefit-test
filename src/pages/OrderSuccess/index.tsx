@@ -1,4 +1,3 @@
-import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 
 import {
@@ -12,7 +11,6 @@ import {
 export function OrderSuccess() {
   return (
     <>
-      <Helmet title="Order Success" />
       <OrderSuccessContainer>
         <Title>Compra realizada com sucesso!</Title>
 
